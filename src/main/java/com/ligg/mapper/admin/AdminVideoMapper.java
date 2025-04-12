@@ -1,0 +1,29 @@
+package com.ligg.mapper.admin;
+
+import com.ligg.pojo.Video;
+import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Select;
+
+import java.util.List;
+
+@Mapper
+public interface AdminVideoMapper {
+
+    /**
+     * 获取草稿视频List
+     */
+    @Select("select * from video_draft")
+    List<Video> getDraftVideoList();
+
+    /**
+     * 拷贝视频到视频表
+     */
+     void copyVideo(Integer id);
+
+     /**
+     * 删除草稿视频
+     */
+     @Delete("delete from video_draft where id=#{id}")
+    void deleteVideo(Integer id);
+}
