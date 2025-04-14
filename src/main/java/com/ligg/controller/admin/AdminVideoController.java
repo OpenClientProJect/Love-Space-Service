@@ -17,6 +17,10 @@ public class AdminVideoController {
 
     @Autowired
     private AdminVideoService adminVideoService;
+
+    /**
+     * 获取草稿视频列表
+     */
     @GetMapping("/getVideoList")
     public Result<List<Video>> getVideoList() {
 
@@ -24,6 +28,9 @@ public class AdminVideoController {
         return Result.success(draftVideoList);
     }
 
+    /**
+     * 审核视频
+     */
     @PostMapping("/auditVideo")
     public Result<?> AuditVideo(Integer id) {
         adminVideoService.AuditVideo(id);

@@ -11,4 +11,10 @@
         from video_draft
         where id = #{id}
     </insert>
+    <select id="getDraftVideoList" resultType="com.ligg.pojo.Video">
+        select *
+        from video_draft vd
+        join
+            user u on vd.user_id = u.id
+    </select>
 </mapper>

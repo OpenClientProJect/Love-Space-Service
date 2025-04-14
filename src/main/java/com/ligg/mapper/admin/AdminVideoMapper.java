@@ -13,17 +13,19 @@ public interface AdminVideoMapper {
     /**
      * 获取草稿视频List
      */
-    @Select("select * from video_draft")
     List<Video> getDraftVideoList();
 
     /**
      * 拷贝视频到视频表
      */
-     void copyVideo(Integer id);
+    void copyVideo(Integer id);
 
-     /**
+    /**
      * 删除草稿视频
      */
-     @Delete("delete from video_draft where id=#{id}")
+    @Delete("delete from video_draft where id=#{id}")
     void deleteVideo(Integer id);
+
+    @Select("select id, username, nickname, user_pic from user")
+    Video getUserInfoById(Long userId);
 }
