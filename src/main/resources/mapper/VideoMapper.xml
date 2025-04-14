@@ -8,6 +8,11 @@
         select uv.*, u.nickname,u.user_pic
         from video uv
                  join user u on uv.user_id = u.id
+        <where>
+            <if test="categoryId != null">
+                and uv.category_id = #{categoryId}
+            </if>
+        </where>
         order by uv.update_time desc
         limit 100
     </select>

@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface VideoMapper {
     // 查询所有视频
-    List<Video> list();
+    List<Video> list(Integer categoryId);
     // 根据id查询视频和用户信息
     Video findById(Integer id);
     // 根据用户id查询视频
