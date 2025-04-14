@@ -28,11 +28,7 @@ public class VideoServiceImpl implements VideoService {
     // 查询所有视频
     @Override
     public List<Video> list(Integer categoryId) {
-        //从Redis中查询
-
-        List<Video> list = videoMapper.list(categoryId);
-
-        return list;
+        return videoMapper.list(categoryId);
     }
 
     // 根据id查询视频

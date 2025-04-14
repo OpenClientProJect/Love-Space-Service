@@ -6,8 +6,8 @@
 
     <!-- 复制视频 -->
     <insert id="copyVideo">
-        insert into video(title, content, cover, video_url, user_id, create_time)
-        select title, content, cover, video_url, user_id, create_time
+        insert into video(title, content, cover, video_url, user_id, create_time,category_id)
+        select title, content, cover, video_url, user_id, create_time,category_id
         from video_draft
         where id = #{id}
     </insert>
