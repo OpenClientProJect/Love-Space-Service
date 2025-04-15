@@ -22,4 +22,16 @@ public class FollowServiceImpl implements FollowService {
         }
         return users;
     }
+
+    @Override
+    public List<User> fansList(Long userId) {
+
+        List<User> users = followMapper.fansList(userId);
+        for (User user : users){
+            user.setRole(null);
+        }
+        return users;
+    }
+
+
 }

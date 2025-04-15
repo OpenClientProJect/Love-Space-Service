@@ -27,4 +27,12 @@ public class FollowController {
         List<User> userFollows = followService.FollowList(userId);
         return Result.success(userFollows);
     }
+
+    //粉色列表
+    @GetMapping("/fans")
+    public Result<List<User>> fansList(Long userId){
+
+        List<User> userFans = followService.fansList(userId);
+        return Result.success(userFans);
+    }
 }

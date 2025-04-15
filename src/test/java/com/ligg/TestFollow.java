@@ -31,4 +31,14 @@ public class TestFollow {
 
     }
 
+    /**
+     * 粉色列表
+     */
+    @Test
+    public void fansList(){
+
+        Long UserId = 2450284791L;
+        List<User> users = followService.fansList(UserId);
+        System.out.println(users);
+    }
 }
