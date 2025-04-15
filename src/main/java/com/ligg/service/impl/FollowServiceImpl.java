@@ -17,6 +17,9 @@ public class FollowServiceImpl implements FollowService {
     @Override
     public List<User> FollowList(Long userId) {
         List<User> users = followMapper.FollowList(userId);
+        for (User user : users) {
+            user.setRole(null);
+        }
         return users;
     }
 }
