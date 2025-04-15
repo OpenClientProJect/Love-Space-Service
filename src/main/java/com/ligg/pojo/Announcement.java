@@ -7,7 +7,7 @@ import lombok.*;
 @Setter
 @Getter
 public class Announcement {
-    private Integer announcement_id;
+    private Integer announcementId;
     private String title;
     private String text;
     private String imageUrl;// 封面图片地址

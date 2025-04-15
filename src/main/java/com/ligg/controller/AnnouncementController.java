@@ -4,10 +4,9 @@ import com.ligg.pojo.Announcement;
 import com.ligg.pojo.Result;
 import com.ligg.service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/announcement")
@@ -23,5 +22,14 @@ public class AnnouncementController {
     public Result<?> publish(@RequestBody Announcement announcement) {
         announcementService.publish(announcement);
         return Result.success();
+    }
+
+    /**
+     * 获取公告列表
+     */
+    @GetMapping
+    public Result<List<Announcement>> getAnnouncementList() {
+        List<Announcement> announcements = announcementService.getAnnouncement();
+        return Result.success(announcements);
     }
 }

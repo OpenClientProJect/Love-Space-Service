@@ -2,10 +2,17 @@ package com.ligg.service;
 
 import com.ligg.pojo.Announcement;
 
+import java.util.List;
+
 public interface AnnouncementService {
 
     /**
      * 发布公告
      */
     void publish(Announcement announcement);
+
+    /**
+     * 获取公告
+     */
+    List<Announcement> getAnnouncement();
 }
