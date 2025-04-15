@@ -10,8 +10,4 @@ public interface FileUploadService {
     String uploadImage(MultipartFile file);
     //视频上传
     String uploadVideo(MultipartFile video);
-
-    void saveChunk(MultipartFile file, String fileId, int chunkIndex) throws IOException;
-
-    String mergeChunks(String fileId, String fileName, int totalChunks) throws IOException;
 }

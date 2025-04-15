@@ -8,8 +8,8 @@
         select *
         from user_follow
         join
-            user u on user_follow.user_id = u.id
-        where user_follow.user_id = #{userId}
+            user u on user_follow.follow_user_id = u.id
+        where user_id = #{userId}
     </select>
 
     <!-- 粉丝列表 -->
