@@ -10,7 +10,7 @@ public interface AnnouncementMapper {
     /**
      * 发布公告
      */
-    @Insert("insert into announcement(title,text,cover_url,video_url)" +
-            "values(#{title},#{text},#{coverUrl},#{videoUrl} ) ")
+    @Insert("insert into announcement(title,text,image_url,video_url,create_time)" +
+            "values(#{title},#{text},#{imageUrl},#{videoUrl},NOW())")
     void publish(Announcement announcement);
 }

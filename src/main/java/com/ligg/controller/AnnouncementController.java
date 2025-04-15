@@ -5,6 +5,7 @@ import com.ligg.pojo.Result;
 import com.ligg.service.AnnouncementService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,7 +20,7 @@ public class AnnouncementController {
      * 发布公告
      */
     @PostMapping
-    public Result<?> publish(Announcement announcement) {
+    public Result<?> publish(@RequestBody Announcement announcement) {
         announcementService.publish(announcement);
         return Result.success();
     }
