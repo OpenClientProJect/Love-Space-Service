@@ -1,6 +1,7 @@
 package com.ligg.mapper;
 
 import com.ligg.pojo.Announcement;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
@@ -22,4 +23,10 @@ public interface AnnouncementMapper {
      */
     @Select("select * from announcement order by create_time desc")
     List<Announcement> getAnnouncement();
+
+    /**
+     * 删除公告
+     */
+    @Delete("delete from announcement where announcement_id=#{announcementId}")
+    void deleteAnnouncement(Integer announcementId);
 }

@@ -35,4 +35,10 @@ public class VideoController {
     public Result<List<Barrage>> getBarrage(@RequestParam Integer videoId) {
         return Result.success(barrageService.getBarrage(videoId));
     }
+    //获取视频收藏列表
+    @GetMapping("/collectList")
+    public Result<List<Video>> collectList(Long userId) {
+        List<Video> collectList = videoService.getCollectList(userId);
+        return Result.success(collectList);
+    }
 }

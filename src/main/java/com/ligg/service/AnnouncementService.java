@@ -15,4 +15,9 @@ public interface AnnouncementService {
      * 获取公告
      */
     List<Announcement> getAnnouncement();
+
+    /**
+     * 删除公告
+     */
+    void deleteAnnouncement(Integer announcementId);
 }

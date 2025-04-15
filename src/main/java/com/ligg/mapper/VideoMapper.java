@@ -20,4 +20,7 @@ public interface VideoMapper {
     Integer findVideoLikeById(Integer videoId);
     @Select("select * from video_action where video_id=#{id} and user_id=#{userId}")
     Video isUserLike(Integer id, Long userId);
+
+    //用户视频收藏列表
+    List<Video> findVideoFavorite(Long userId);
 }

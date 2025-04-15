@@ -1,9 +1,7 @@
 package com.ligg;
 
-import com.ligg.config.WebSocketConfig;
-import com.ligg.mapper.VideoMapper;
 import com.ligg.pojo.Video;
-import com.ligg.service.admin.AdminVideoService;
+import com.ligg.service.VideoService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,27 +11,18 @@ import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 import java.util.List;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
-public class TestVideo {
+public class TestUser {
 
     @MockBean
     private ServerEndpointExporter serverEndpointExporter;
 
     @Autowired
-    private AdminVideoService adminVideoService;
+    private VideoService videoService;
 
-    @Autowired
-    private VideoMapper videoMapper;
-
+    //获取使用收藏列表
     @Test
-    public void test(){
-        adminVideoService.AuditVideo(93);
+    public void getCollectList(){
+        List<Video> collectList = videoService.getCollectList(2450284791L);
+        System.out.println(collectList);
     }
-
-    @Test
-    public void test2(){
-        List<Video> list = videoMapper.list(1);
-        System.out.println(list);
-
-    }
-
 }

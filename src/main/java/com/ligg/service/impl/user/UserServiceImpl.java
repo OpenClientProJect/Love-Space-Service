@@ -255,6 +255,7 @@ public class UserServiceImpl implements UserService {
         User userInfo = userMapper.getUserInfo(username);
         //new数组接收数据
         UserDto userDto = new UserDto();
+        userDto.setId(userInfo.getId());
         userDto.setUsername(userInfo.getUsername());
         userDto.setNickname(userInfo.getNickname());
         userDto.setSex(userInfo.getSex());

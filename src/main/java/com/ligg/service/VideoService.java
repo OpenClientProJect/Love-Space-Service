@@ -9,6 +9,6 @@ public interface VideoService {
     List<Video> list(Integer categoryId);
     // 根据id查询视频
     Video findById(Integer id);
-    // 根据视频id查询点赞数
-    Integer findVideoLikeById(Integer videoId);
+    //用户收藏列表
+    List<Video> getCollectList(Long userId);
 }

@@ -22,8 +22,22 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         announcementMapper.publish(announcement);
     }
 
+    /**
+     * 获取公告
+     */
     @Override
     public List<Announcement> getAnnouncement() {
         return announcementMapper.getAnnouncement();
     }
+
+    /**
+     * 删除公告
+     */
+    @Override
+    public void deleteAnnouncement(Integer announcementId) {
+       announcementMapper.deleteAnnouncement(announcementId);
+    }
+
+
+
 }

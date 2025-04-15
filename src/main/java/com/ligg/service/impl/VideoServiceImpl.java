@@ -36,9 +36,9 @@ public class VideoServiceImpl implements VideoService {
     public Video findById(Integer id) {
         return videoMapper.findById(id);
     }
-    // 根据视频id查询点赞数
+
     @Override
-    public Integer findVideoLikeById(Integer videoId) {
-        return videoMapper.findVideoLikeById(videoId);
+    public List<Video> getCollectList(Long userId) {
+        return videoMapper.findVideoFavorite(userId);
     }
 }

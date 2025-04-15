@@ -32,4 +32,13 @@ public class AnnouncementController {
         List<Announcement> announcements = announcementService.getAnnouncement();
         return Result.success(announcements);
     }
+
+    /**
+     * 删除公告
+     */
+    @DeleteMapping
+    public Result<?> deleteAnnouncement(@RequestParam Integer announcementId) {
+        announcementService.deleteAnnouncement(announcementId);
+        return Result.success();
+    }
 }
