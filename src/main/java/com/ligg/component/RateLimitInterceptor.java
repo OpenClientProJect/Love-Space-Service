@@ -11,7 +11,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import java.time.Duration;
 // 限流拦截器
 @Component
-public class RateLimitInterceptor implements HandlerInterceptor {
+public class  RateLimitInterceptor implements HandlerInterceptor {
 
     private final RateLimiter rateLimiter;
 

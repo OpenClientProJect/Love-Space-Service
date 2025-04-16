@@ -25,7 +25,7 @@
     </select>
     <!-- 视频收藏列表 -->
     <select id="findVideoFavorite" resultType="com.ligg.pojo.Video">
-        select *
+        select v.id,v.title,v.cover,v.content,v.video_url,v.create_time
         from video_favorite vf
         join  video v on vf.video_id = v.id
         where vf.user_id = #{userId}

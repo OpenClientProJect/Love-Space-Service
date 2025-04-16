@@ -31,7 +31,6 @@ public class Video {
     private Integer categoryId;//分类id
     private String videoUrl;//视频地址
     private Integer likesCount;//点赞数
-    private boolean UserLike = false;//是否点赞
     private Integer favoriteCount;//收藏数
     private LocalDateTime createTime;//发布时间
     private LocalDateTime updateTime;//更新时间
