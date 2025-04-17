@@ -11,8 +11,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class VideoDto {
     private Long id;
+    private Integer videoId;
+    private Long userId;
+    private String nickname;
+    private String userPic;
     private String title;
     private String cover;
-    private String content;
-    private LocalDateTime createTime;
+    private LocalDateTime likedAt;//点赞时间
 }

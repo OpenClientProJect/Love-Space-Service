@@ -1,10 +1,10 @@
-package com.ligg.service;
+package com.ligg.service.User;
 
 import com.ligg.pojo.ChatMessage;
 
 import java.util.List;
 
-public interface ChatMessageService {
+public interface UserChatMessageService {
 
     /**
      * 保存聊天消息

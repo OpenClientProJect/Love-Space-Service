@@ -6,7 +6,7 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ligg.pojo.ChatMessage;
 import com.ligg.pojo.Message;
 import com.ligg.pojo.MessageData;
-import com.ligg.service.ChatMessageService;
+import com.ligg.service.User.UserChatMessageService;
 import com.ligg.service.impl.OfflineMessageServiceImpl;
 import jakarta.websocket.*;
 import jakarta.websocket.server.ServerEndpoint;
@@ -35,14 +35,14 @@ public class WebSocketServer {
             .setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"));
 
     private static final Map<String, Session> sessions = new ConcurrentHashMap<>();
-    private static ChatMessageService chatMessageService;
+    private static UserChatMessageService chatMessageService;
     private static OfflineMessageServiceImpl offlineMessageService;
     // 存储用户在线状态
     private static final Map<String, Boolean> onlineStatus = new ConcurrentHashMap<>();
     private String username;
 
     @Autowired
-    public void setChatMessageService(ChatMessageService service) {
+    public void setChatMessageService(UserChatMessageService service) {
         WebSocketServer.chatMessageService = service;
     }
 

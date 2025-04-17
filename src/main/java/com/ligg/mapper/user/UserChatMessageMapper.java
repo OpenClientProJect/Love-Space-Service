@@ -1,4 +1,4 @@
-package com.ligg.mapper;
+package com.ligg.mapper.user;
 
 import com.ligg.pojo.ChatMessage;
 import org.apache.ibatis.annotations.Insert;
@@ -9,7 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import java.util.List;
 
 @Mapper
-public interface ChatMessageMapper {
+public interface UserChatMessageMapper {
 
     /**
      * 获取用户的未读消息数量
@@ -48,4 +48,10 @@ public interface ChatMessageMapper {
     @Update("UPDATE chat_message SET is_read = 1 " +
             "WHERE from_user = #{fromUser} AND to_user = #{toUser} AND is_read = 0")
     int markAsRead(String fromUser, String toUser);
+
+    /**
+     * 获取用户所有消息
+     */
+    @Select("SELECT * FROM chat_message WHERE to_user = #{username}")
+    List<ChatMessage> getAllChatMessage(String username);
 }

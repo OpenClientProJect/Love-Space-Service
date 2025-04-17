@@ -25,4 +25,20 @@
         </set>
         where id=#{id}
     </update>
+
+    <!--查询用户点赞信息-->
+    <select id="listByUserId" resultType="com.ligg.dto.VideoDto">
+        select vl.id,
+               vl.video_id,
+               vl.user_id,
+               vl.liked_at,
+               v.title,
+               v.cover,
+               u.nickname,
+               u.user_pic
+        from video_likes vl
+                 join video v on vl.video_id = v.id
+                 join user u on vl.user_id = u.id
+        where v.user_id = #{userId}
+    </select>
 </mapper>

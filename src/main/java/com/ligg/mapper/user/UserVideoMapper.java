@@ -1,5 +1,6 @@
 package com.ligg.mapper.user;
 
+import com.ligg.dto.VideoDto;
 import com.ligg.pojo.Video;
 import org.apache.ibatis.annotations.*;
 
@@ -20,8 +21,7 @@ public interface UserVideoMapper {
     void update(Video userVideo);
 
     // 根据用户id查询视频信息
-    @Select("select title from video where user_id=#{userId}")
-    List<Video> listByUserId(Video userVideo);
+    List<VideoDto> listByUserId(Long userId);
 
     // 根据视频id查询视频信息
     @Select("select * from video where id=#{id}")
@@ -68,4 +68,6 @@ public interface UserVideoMapper {
 
     @Delete("delete from video_favorite where user_id=#{userId} and video_id=#{videoId}")
     void deleteVideoFavorite(Long userId, Integer videoId);
+
+
 }

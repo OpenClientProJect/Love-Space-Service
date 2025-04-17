@@ -1,8 +1,8 @@
 package com.ligg.service.impl;
 
-import com.ligg.mapper.ChatMessageMapper;
+import com.ligg.mapper.user.UserChatMessageMapper;
 import com.ligg.pojo.ChatMessage;
-import com.ligg.service.ChatMessageService;
+import com.ligg.service.User.UserChatMessageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -14,8 +14,8 @@ import java.util.List;
  */
 @Service
 @RequiredArgsConstructor
-public class ChatMessageServiceImpl implements ChatMessageService {
-    private final ChatMessageMapper chatMessageMapper;
+public class ChatMessageServiceImpl implements UserChatMessageService {
+    private final UserChatMessageMapper chatMessageMapper;
     // 保存消息
     @Override
     public void saveMessage(ChatMessage message) {

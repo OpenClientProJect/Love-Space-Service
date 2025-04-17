@@ -4,7 +4,7 @@ import com.ligg.component.WebSocketServer;
 import com.ligg.pojo.ChatMessage;
 import com.ligg.pojo.Result;
 import com.ligg.pojo.user.User;
-import com.ligg.service.ChatMessageService;
+import com.ligg.service.User.UserChatMessageService;
 import com.ligg.service.User.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class ChatController {
 
     @Autowired
     UserService userService;
-    private final ChatMessageService chatMessageService;
+    private final UserChatMessageService chatMessageService;
 
     //获取聊天对象
     @GetMapping("/chat")
