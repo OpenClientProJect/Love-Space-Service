@@ -5,7 +5,8 @@
 <mapper namespace="com.ligg.mapper.CommentsMapper">
     <!--查询视频下的所有评论-->
     <select id="findCommentsByVideoId" resultType="com.ligg.pojo.Comments">
-        select c.content,
+        select c.id,
+               c.content,
                c.user_id,
                c.create_time,
                c.parent_id,

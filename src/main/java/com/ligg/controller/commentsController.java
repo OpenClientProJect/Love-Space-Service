@@ -20,7 +20,7 @@ public class commentsController {
     @Log
     @PostMapping("/publish")
     public Result<String> publish(@RequestBody Comments comments) {
-        String c = commentsService.publish(comments.getId(), comments.getContent());
+        String c = commentsService.publish(comments.getId(), comments.getContent(), comments.getParentId());
         if (c == null)
             return Result.success();
         return Result.error(c);

@@ -17,7 +17,7 @@ public class CommentsServiceImpl implements CommentsService {
     @Autowired
     CommentsMapper commentsMapper;
     @Override
-    public String publish(Integer id,String comments) {
+    public String publish(Integer id, String comments, Long parentId) {
         Map<String, Object> map = ThreadLocalUtil.get();
         if (map == null){
             return "请先登录后在发布评论";
@@ -26,6 +26,7 @@ public class CommentsServiceImpl implements CommentsService {
         comment.setVideoId(id);
         comment.setUserId((Long) map.get("id"));
         comment.setContent(comments);
+        comment.setParentId(parentId);
         commentsMapper.publish(comment);
         return null;
     }
