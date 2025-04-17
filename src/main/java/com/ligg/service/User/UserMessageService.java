@@ -1,7 +1,9 @@
 package com.ligg.service.User;
 
+import com.ligg.dto.CommentDto;
 import com.ligg.dto.UserChatMessageDto;
 import com.ligg.dto.VideoDto;
+import com.ligg.pojo.Comments;
 import com.ligg.pojo.Video;
 import com.ligg.vo.UserMessageVo;
 import org.w3c.dom.stylesheets.LinkStyle;
@@ -19,4 +21,9 @@ public interface UserMessageService {
      * 私信消息
      */
     List<UserChatMessageDto> getAllChatMessage(String username);
+
+    /**
+     * 评论消息
+     */
+    List<CommentDto> getAllCommentsMessage(Long userId);
 }

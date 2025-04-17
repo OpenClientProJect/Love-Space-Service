@@ -1,6 +1,7 @@
 package com.ligg.controller.user;
 
 
+import com.ligg.dto.CommentDto;
 import com.ligg.dto.UserChatMessageDto;
 import com.ligg.dto.VideoDto;
 import com.ligg.pojo.Result;
@@ -30,8 +31,9 @@ public class UserMessageController {
         List<VideoDto> userMassage = userMessageService.getUserMassage(userId);
         String username = (String) map.get("username");
         List<UserChatMessageDto> allChatMessage = userMessageService.getAllChatMessage(username);
+        List<CommentDto> allCommentsMessage = userMessageService.getAllCommentsMessage(userId);
 
-        List<UserMessageVo> userMessageVo = Collections.singletonList(new UserMessageVo(userMassage, allChatMessage));
+        List<UserMessageVo> userMessageVo = Collections.singletonList(new UserMessageVo(userMassage, allChatMessage,allCommentsMessage));
         return Result.success(userMessageVo);
     }
 }

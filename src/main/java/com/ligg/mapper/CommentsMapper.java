@@ -1,5 +1,6 @@
 package com.ligg.mapper;
 
+import com.ligg.dto.CommentDto;
 import com.ligg.pojo.Comments;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -14,4 +15,7 @@ public interface CommentsMapper {
     void publish(Comments comments);
     //根据视频id查询评论
     List<Comments> findCommentsByVideoId(Integer id);
+
+    //获取用户评论消息
+    List<CommentDto> getAllCommentsMessage(Long userId);
 }

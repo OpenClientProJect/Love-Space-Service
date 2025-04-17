@@ -18,4 +18,21 @@
         where c.video_id = #{id}
         order by c.create_time desc
     </select>
+
+    <!--查询用户评论消息-->
+    <select id="getAllCommentsMessage" resultType="com.ligg.dto.CommentDto">
+        select v.id as videoId,
+               v.title,
+               v.cover as videoCover,
+               c.id,
+               c.user_id,
+               c.content,
+               c.create_time,
+               u.nickname,
+               u.user_pic
+        from video v
+                 join comments c on v.id = c.video_id
+                 join user u on c.user_id = u.id
+        where v.user_id = #{userId}
+    </select>
 </mapper>
