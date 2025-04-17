@@ -20,7 +20,7 @@ public interface UserVideoMapper {
     // 修改用户视频信息
     void update(Video userVideo);
 
-    // 根据用户id查询视频信息
+    // 根据用户id查询视点赞频信息
     List<VideoDto> listByUserId(Long userId);
 
     // 根据视频id查询视频信息

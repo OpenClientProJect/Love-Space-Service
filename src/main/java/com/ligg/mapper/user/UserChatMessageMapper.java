@@ -1,5 +1,6 @@
 package com.ligg.mapper.user;
 
+import com.ligg.dto.UserChatMessageDto;
 import com.ligg.pojo.ChatMessage;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
@@ -50,8 +51,7 @@ public interface UserChatMessageMapper {
     int markAsRead(String fromUser, String toUser);
 
     /**
-     * 获取用户所有消息
+     * 获取用户接收到的所有消息
      */
-    @Select("SELECT * FROM chat_message WHERE to_user = #{username}")
-    List<ChatMessage> getAllChatMessage(String username);
+    List<UserChatMessageDto> getAllChatMessage(String username);
 }
