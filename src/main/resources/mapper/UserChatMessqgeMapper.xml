@@ -5,11 +5,11 @@
 <mapper namespace="com.ligg.mapper.user.UserChatMessageMapper">
 
     <select id="getAllChatMessage" resultType="com.ligg.dto.UserChatMessageDto">
-        select cm.id,cm.content,cm.send_time,cm.to_user as username,
+        select cm.id,cm.content,cm.send_time,cm.from_user as username,
                u.nickname,u.user_pic
         from chat_message cm
-        join user u on cm.to_user = u.username
-        where cm.from_user = #{username}
-
+        join user u on cm.from_user = u.username
+        where cm.to_user = #{username}
+        order by cm.send_time desc
     </select>
 </mapper>

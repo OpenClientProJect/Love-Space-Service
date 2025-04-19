@@ -33,6 +33,6 @@
         from video v
                  join comments c on v.id = c.video_id
                  join user u on c.user_id = u.id
-        where v.user_id = #{userId}
+        where v.user_id = #{userId} order by c.create_time desc
     </select>
 </mapper>

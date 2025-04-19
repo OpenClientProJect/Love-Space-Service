@@ -1,5 +1,6 @@
 package com.ligg;
 
+import com.ligg.dto.UserChatMessageDto;
 import com.ligg.dto.VideoDto;
 import com.ligg.service.User.UserMessageService;
 import org.junit.jupiter.api.Test;
@@ -22,11 +23,9 @@ public class TestMassage {
 
     @Test
     public void getMassage() {
-//        Long userId = 2450284789L;
-//        List<VideoDto> userMassage = userMessageService.getUserMassage(userId);
-//       //遍历输所有数据
-//        for (VideoDto videoDto : userMassage) {
-//            System.out.println("用户"+videoDto.getUserId() + "点赞了你的" +videoDto.getVideoId()+ "这条视频，" + "视频标题是：" + videoDto.getTitle());
-//        }
+        String username = "245678780817";
+          for (UserChatMessageDto userChatMessageDto : userMessageService.getAllChatMessage(username)) {
+              System.out.println(userChatMessageDto);
+        }
     }
 }

@@ -40,5 +40,6 @@
                  join video v on vl.video_id = v.id
                  join user u on vl.user_id = u.id
         where v.user_id = #{userId}
+        order by vl.liked_at desc
     </select>
 </mapper>

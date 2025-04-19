@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
@@ -18,5 +19,5 @@ public class CommentDto {
     private String userPic;
     private String nickname;
     private String content;//评论内容
-    private LocalDate createTime;//评论时间
+    private LocalDateTime createTime;//评论时间
 }
