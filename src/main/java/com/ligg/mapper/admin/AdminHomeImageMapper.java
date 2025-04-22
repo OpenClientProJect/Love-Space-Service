@@ -18,8 +18,8 @@ public interface AdminHomeImageMapper {
     @Select("select home_img_id,image,create_time,title,video,description from home_image")
     List<HomeImage> getHomeImageList();
 
-    @Select("select img from background")
-    List<Map<String, Object>> getBackground();
+    @Select("select id,img from background")
+    Map<String, Object> getBackground();
 
     //更新轮播图
     @Update("update home_image set image=#{image},title=#{title},video=#{video},description=#{description}" +
@@ -29,4 +29,11 @@ public interface AdminHomeImageMapper {
     //删除轮播图
     @Delete("delete from home_image where home_img_id=#{homeImgId}")
     void delete(Integer homeImgId);
+
+    @Update("update background set img=#{img} where id = #{id}")
+    void updateBackground(Integer id,String img);
+
+    //添加背景图
+    @Insert("insert into background(img) values(#{img})")
+    void addBackground(String img);
 }

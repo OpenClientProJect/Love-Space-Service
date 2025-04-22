@@ -11,9 +11,13 @@ public interface AdminHomeImageService {
 
     List<HomeImage> getHomeImageList();
 
-    List<Map<String,Object>> getBackground();
+    Map<String,Object> getBackground();
 
     void update(HomeImage homeImage);
 
     void delete(Integer homeImgId);
+    //更新背景图
+    void updateBackground(Integer id,String img);
+    //添加背景图
+    void addBackground(String img);
 }

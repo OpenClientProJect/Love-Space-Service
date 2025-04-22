@@ -26,7 +26,7 @@ public class AdminHomeImageServiceImpl implements AdminHomeImageService {
     }
 
     @Override
-    public List<Map<String, Object>> getBackground() {
+    public Map<String, Object> getBackground() {
         return adminHomeImageMapper.getBackground();
     }
 
@@ -38,5 +38,15 @@ public class AdminHomeImageServiceImpl implements AdminHomeImageService {
     @Override
     public void delete(Integer homeImgId) {
         adminHomeImageMapper.delete(homeImgId);
+    }
+
+    @Override
+    public void updateBackground(Integer id,String img) {
+        adminHomeImageMapper.updateBackground(id,img);
+    }
+
+    @Override
+    public void addBackground(String img) {
+        adminHomeImageMapper.addBackground(img);
     }
 }

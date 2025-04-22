@@ -28,23 +28,38 @@ public class HomeImageController {
         List<HomeImage> homeImageList = adminHomeImageService.getHomeImageList();
         return Result.success(homeImageList);
     }
-    @GetMapping("/background")
-    public Result<List<Map<String,Object>>> getBackground() {
-        List<Map<String,Object>> background = adminHomeImageService.getBackground();
-        return Result.success(background);
-    }
-
     //编辑
     @PutMapping
     public Result<?> update(@RequestBody HomeImage homeImage) {
         adminHomeImageService.update(homeImage);
         return Result.success();
     }
+    //背景图
+    @GetMapping("/background")
+    public Result<Map<String,Object>> getBackground() {
+        Map<String,Object> background = adminHomeImageService.getBackground();
+        return Result.success(background);
+    }
 
-    //删除
-    @DeleteMapping("/{homeImgId}")
-    public Result<?> delete(@PathVariable("homeImgId") Integer homeImgId) {
-        adminHomeImageService.delete(homeImgId);
+    @PutMapping("/background")
+    public Result<?> updateBackground(@RequestBody Map<String,Object> map) {
+        Integer id = (Integer) map.get("id");
+        String img = (String) map.get("img");
+        adminHomeImageService.updateBackground(id, img);
         return Result.success();
     }
+
+    @PostMapping("/background")
+    public Result<?> addBackground(@RequestBody Map<String,Object> map) {
+        String img = (String) map.get("img");
+        adminHomeImageService.addBackground(img);
+        return Result.success();
+    }
+
+//    //删除
+//    @DeleteMapping("/{homeImgId}")
+//    public Result<?> delete(@PathVariable("homeImgId") Integer homeImgId) {
+//        adminHomeImageService.delete(homeImgId);
+//        return Result.success();
+//    }
 }
