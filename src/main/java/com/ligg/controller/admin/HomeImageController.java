@@ -23,7 +23,7 @@ public class HomeImageController {
         return Result.success();
     }
 
-    @GetMapping
+    @GetMapping("/image")
     public Result<List<HomeImage>> getHomeImageList() {
         List<HomeImage> homeImageList = adminHomeImageService.getHomeImageList();
         return Result.success(homeImageList);
