@@ -3,6 +3,7 @@ package com.ligg.controller.admin;
 import com.ligg.pojo.Activity;
 import com.ligg.pojo.Result;
 import com.ligg.service.ActivityService;
+import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +26,17 @@ public class ActivityController {
     @GetMapping
     public Result<List<Activity>> getActivityList() {
         return Result.success(activityService.getActivityList());
+    }
+    //编辑
+    @PutMapping
+    public Result<?> updateActivity(@RequestBody Activity activity) {
+        activityService.update(activity);
+        return Result.success();
+    }
+    //删除
+    @DeleteMapping
+    public Result<?> deleteActivity(Integer activityId) {
+        activityService.delete(activityId);
+        return Result.success();
     }
 }

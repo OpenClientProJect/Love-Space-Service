@@ -8,4 +8,8 @@ public interface ActivityService {
     void save(Activity activity);
 
     List<Activity> getActivityList();
+
+    void update(Activity activity);
+
+    void delete(Integer activityId);
 }
