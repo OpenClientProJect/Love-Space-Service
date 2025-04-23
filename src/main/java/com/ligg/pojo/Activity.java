@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Activity {
-    private Integer activity_id;
+    private Integer activityId;
     private String text;
     private String title;
     private String image;

@@ -6,6 +6,8 @@ import com.ligg.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ActivityServiceImpl implements ActivityService {
 
@@ -15,5 +17,10 @@ public class ActivityServiceImpl implements ActivityService {
     @Override
     public void save(Activity activity) {
         activityMapper.save(activity);
+    }
+
+    @Override
+    public List<Activity> getActivityList() {
+        return activityMapper.getActivityList();
     }
 }
