@@ -3,7 +3,6 @@ package com.ligg.controller.admin;
 import com.ligg.pojo.Activity;
 import com.ligg.pojo.Result;
 import com.ligg.service.ActivityService;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
