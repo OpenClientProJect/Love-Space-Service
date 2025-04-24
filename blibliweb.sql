@@ -11,11 +11,25 @@
  Target Server Version : 80040 (8.0.40)
  File Encoding         : 65001
 
- Date: 22/04/2025 15:10:03
+ Date: 24/04/2025 09:20:05
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for activity
+-- ----------------------------
+DROP TABLE IF EXISTS `activity`;
+CREATE TABLE `activity`  (
+  `activity_id` int NOT NULL AUTO_INCREMENT,
+  `text` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_estonian_ci NOT NULL,
+  `title` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_estonian_ci NULL DEFAULT NULL COMMENT '标题',
+  `image` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_estonian_ci NULL DEFAULT NULL,
+  `create_time` datetime NULL DEFAULT NULL,
+  PRIMARY KEY (`activity_id`) USING BTREE,
+  INDEX `activity_activity_id_index`(`activity_id` ASC) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_estonian_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for anime
