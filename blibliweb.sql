@@ -11,25 +11,11 @@
  Target Server Version : 80040 (8.0.40)
  File Encoding         : 65001
 
- Date: 24/04/2025 09:20:05
+ Date: 25/04/2025 09:56:10
 */
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for activity
--- ----------------------------
-DROP TABLE IF EXISTS `activity`;
-CREATE TABLE `activity`  (
-  `activity_id` int NOT NULL AUTO_INCREMENT,
-  `text` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_estonian_ci NOT NULL,
-  `title` varchar(25) CHARACTER SET utf8mb3 COLLATE utf8mb3_estonian_ci NULL DEFAULT NULL COMMENT '标题',
-  `image` varchar(1000) CHARACTER SET utf8mb3 COLLATE utf8mb3_estonian_ci NULL DEFAULT NULL,
-  `create_time` datetime NULL DEFAULT NULL,
-  PRIMARY KEY (`activity_id`) USING BTREE,
-  INDEX `activity_activity_id_index`(`activity_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_estonian_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for anime
@@ -80,25 +66,6 @@ CREATE TABLE `announcement`  (
   PRIMARY KEY (`announcement_id`) USING BTREE,
   INDEX `announcement_announcement_id_index`(`announcement_id` ASC) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_estonian_ci COMMENT = '公告表' ROW_FORMAT = Dynamic;
-
--- ----------------------------
--- Table structure for article
--- ----------------------------
-DROP TABLE IF EXISTS `article`;
-CREATE TABLE `article`  (
-  `id` int UNSIGNED NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `title` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '文章标题',
-  `content` varchar(10000) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '文章内容',
-  `cover_img` varchar(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '文章封面',
-  `state` varchar(3) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT '草稿' COMMENT '文章状态: 只能是[已发布] 或者 [草稿]',
-  `category_id` int UNSIGNED NULL DEFAULT NULL COMMENT '文章分类ID',
-  `create_user` int UNSIGNED NOT NULL COMMENT '创建人ID',
-  `create_time` datetime NOT NULL COMMENT '创建时间',
-  `update_time` datetime NOT NULL COMMENT '修改时间',
-  PRIMARY KEY (`id`) USING BTREE,
-  INDEX `fk_article_category`(`category_id` ASC) USING BTREE,
-  INDEX `fk_article_user`(`create_user` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for background
