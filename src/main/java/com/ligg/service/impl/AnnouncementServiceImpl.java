@@ -38,6 +38,11 @@ public class AnnouncementServiceImpl implements AnnouncementService {
        announcementMapper.deleteAnnouncement(announcementId);
     }
 
-
-
+    /**
+     * 修改公告
+     */
+    @Override
+    public void updateAnnouncement(Announcement announcement) {
+        announcementMapper.updateAnnouncement(announcement);
+    }
 }

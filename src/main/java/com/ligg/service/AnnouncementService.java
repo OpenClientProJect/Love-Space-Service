@@ -20,4 +20,9 @@ public interface AnnouncementService {
      * 删除公告
      */
     void deleteAnnouncement(Integer announcementId);
+
+    /**
+     * 編輯公告
+     */
+    void updateAnnouncement(Announcement announcement);
 }

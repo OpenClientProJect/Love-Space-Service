@@ -41,4 +41,13 @@ public class AnnouncementController {
         announcementService.deleteAnnouncement(announcementId);
         return Result.success();
     }
+
+    /**
+     * 修改公告
+     */
+    @PutMapping
+    public Result<?> updateAnnouncement(@RequestBody Announcement announcement) {
+        announcementService.updateAnnouncement(announcement);
+        return Result.success();
+    }
 }

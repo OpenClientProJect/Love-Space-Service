@@ -29,4 +29,9 @@ public interface AnnouncementMapper {
      */
     @Delete("delete from announcement where announcement_id=#{announcementId}")
     void deleteAnnouncement(Integer announcementId);
+
+    /**
+     * 編輯公告
+     */
+    void updateAnnouncement(Announcement announcement);
 }
