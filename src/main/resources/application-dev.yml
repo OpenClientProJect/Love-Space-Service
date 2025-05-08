@@ -2,7 +2,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/blibliweb?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://127.0.0.1:3306/love?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8
     username: root
     password: 200309
   ## 邮件配置
@@ -50,8 +50,9 @@ logging:
 qiniu:
   access-key: oK-n8V8E4ayABoRzDoyg1G62myx6DdQ9BTZQ6SGs
   secret-key: PhGzrzJhBY0tb_osDFMedbzQuR0-xVUtIBBSVbsy
-  bucket-name: love-space
-  domain: http://sujdd1829.hn-bkt.clouddn.com #域名
+  bucket-name: love-deep
+  domain: http://svs454s5u.hn-bkt.clouddn.com #域名sujdd1829.hn-bkt.clouddn.com
+
   video-path: videos/ # 新增的视频文件存储路径或前缀
 
 bangumi:

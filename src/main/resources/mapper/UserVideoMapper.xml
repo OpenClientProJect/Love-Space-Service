@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ligg.mapper.user.UserVideoMapper">
+<mapper namespace="com.love.mapper.user.UserVideoMapper">
     <!--编辑用户视频信息-->
 
     <update id="update">
@@ -27,7 +27,7 @@
     </update>
 
     <!--查询用户点赞信息-->
-    <select id="listByUserId" resultType="com.ligg.dto.VideoDto">
+    <select id="listByUserId" resultType="com.love.dto.VideoDto">
         select vl.id,
                vl.video_id,
                vl.user_id,
