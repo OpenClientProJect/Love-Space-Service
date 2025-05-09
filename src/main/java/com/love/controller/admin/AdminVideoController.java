@@ -32,8 +32,8 @@ public class AdminVideoController {
      * 审核视频
      */
     @PostMapping("/auditVideo")
-    public Result<?> AuditVideo(Integer id) {
-        adminVideoService.AuditVideo(id);
+    public Result<?> AuditVideo(Integer id,Boolean review) {
+        adminVideoService.AuditVideo(id,review);
         return Result.success();
     }
 }

@@ -20,8 +20,8 @@ public class VideoController {
     VideoService videoService;
     // 查询所有视频
     @GetMapping
-    public Result<List<Video>> list(@RequestParam(required = false) Integer categoryId) {
-        List<Video> list = videoService.list(categoryId);
+    public Result<List<Video>> list(@RequestParam(required = false) Integer subCategoryId) {
+        List<Video> list = videoService.list(subCategoryId);
         return Result.success(list);
     }
     //获取视频详细信息

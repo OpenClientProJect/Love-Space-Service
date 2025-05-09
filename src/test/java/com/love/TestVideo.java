@@ -25,7 +25,7 @@ public class TestVideo {
 
     @Test
     public void test(){
-        adminVideoService.AuditVideo(93);
+//        adminVideoService.AuditVideo(93, );
     }
 
     @Test

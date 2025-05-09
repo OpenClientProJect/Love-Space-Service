@@ -13,7 +13,7 @@
     </insert>
     <select id="getDraftVideoList" resultType="com.love.pojo.Video">
         select *
-        from video_draft vd
+        from video vd
         join
             user u on vd.user_id = u.id
     </select>

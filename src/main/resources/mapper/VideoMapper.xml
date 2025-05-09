@@ -9,8 +9,8 @@
         from video uv
                  join user u on uv.user_id = u.id
         <where>
-            <if test="categoryId != null">
-                and uv.category_id = #{categoryId}
+            <if test="subCategoryId != null">
+                and uv.sub_category_id = #{subCategoryId}
             </if>
         </where>
         order by uv.update_time desc

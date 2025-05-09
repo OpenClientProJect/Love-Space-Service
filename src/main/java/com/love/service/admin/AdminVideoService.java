@@ -14,5 +14,5 @@ public interface AdminVideoService {
     /**
      * 拷贝视频
      */
-    void AuditVideo(Integer id);
+    void AuditVideo(Integer id,Boolean review);
 }

@@ -24,9 +24,11 @@ public class AdminVideoServiceImpl implements AdminVideoService {
      * 视频审核
      */
     @Override
-    public void AuditVideo(Integer id) {
-        adminVideoMapper.copyVideo(id);
-        adminVideoMapper.deleteVideo(id);
+    public void AuditVideo(Integer id, Boolean review) {
+        if (review) {
+            adminVideoMapper.updateVideoState(id, 2);
+        } else {
+            adminVideoMapper.updateVideoState(id, 3);
+        }
     }
-
 }
