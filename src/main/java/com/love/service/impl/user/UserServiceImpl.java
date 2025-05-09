@@ -178,6 +178,9 @@ public class UserServiceImpl implements UserService {
             return Result.error("用户不存在,请先注册");
         if (!Md5Util.getMD5String(password).equals(user.getPassword()))
             return Result.error("密码错误");
+        if (user.getStatus() == 0) {
+            return Result.error("用户被禁用");
+        }
         String userToken = userToken(user.getUsername());
         return Result.success(userToken);
     }

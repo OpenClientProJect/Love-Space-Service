@@ -75,7 +75,6 @@ public class UserController {
     @PostMapping("/login")
     public Result<String> login(@RequestParam String account,
                                 @Pattern(regexp = "[a-z A-Z0-9]{6,15}") String password) {
-
         return userService.login(account, password);
     }
 

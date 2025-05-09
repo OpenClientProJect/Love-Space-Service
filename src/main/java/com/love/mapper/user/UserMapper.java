@@ -42,12 +42,18 @@ public interface UserMapper {
     List<User> findByUserChat(String username);
     @Update("update user set id=#{uId} where id=#{id}")
     void updateUserId(Integer id, Long uId);
-    @Select("select id from user where id=#{userId}")
-    Integer findById(Long userId);
+    @Select("select * from user where id=#{userId}")
+    User findById(Long userId);
     @Select("select id,username,nickname,sex,email,user_pic,introduction from user where username=#{username}")
     User getUserInfo(String username);
 
 
     @Select("select username,nickname,sex,email,user_pic,introduction from user")
     List<User> getAllUsers(User user);
+
+    @Update("update user set status=1 where id=#{userId}")
+    void updateUserStatus1(Long userId);
+
+    @Update("update user set status=0 where id= #{userId}")
+    void updateUserStatus0(Long userId);
 }
