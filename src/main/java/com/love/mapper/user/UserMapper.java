@@ -56,4 +56,7 @@ public interface UserMapper {
 
     @Update("update user set status=0 where id= #{userId}")
     void updateUserStatus0(Long userId);
+
+    @Update("update user set role='admin' where id= #{userId}")
+    void updateAdmin(Long userId);
 }

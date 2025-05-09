@@ -2,6 +2,7 @@ package com.love.controller.admin;
 
 import com.love.pojo.Result;
 import com.love.pojo.user.User;
+import com.love.service.User.UserService;
 import com.love.service.admin.ManagementUserService;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,8 @@ public class ManagementUserController {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    private UserService userService;
 
     /**
      * 获取用户列表
@@ -36,10 +39,15 @@ public class ManagementUserController {
     public Result<String> updateUserStatus(@PathVariable Long userId, HttpServletRequest request) {
         Boolean updateUserStatus = managementUserService.updateUserStatus(userId);
         if (updateUserStatus) {
-            String token = request.getHeader("Authorization");
-            stringRedisTemplate.delete(token);
+            stringRedisTemplate.delete(userService.findByUserId(userId).getUsername()+"token");
             return Result.success("更新成功");
         }
         return Result.error("更新失败");
+    }
+
+    @PutMapping("/role/{userId}")
+    public Result<String> updateAdmin(@PathVariable Long userId){
+        managementUserService.updateAdmin(userId);
+        return Result.success("更新成功");
     }
 }

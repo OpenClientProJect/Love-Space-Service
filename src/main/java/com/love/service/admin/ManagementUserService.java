@@ -8,4 +8,6 @@ public interface ManagementUserService {
     List<User> getUserList();
 
     Boolean updateUserStatus(Long userId);
+
+    void updateAdmin(Long userId);
 }

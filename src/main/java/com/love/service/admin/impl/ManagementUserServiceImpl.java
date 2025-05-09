@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ManagementUserServiceImpl implements ManagementUserService {
@@ -20,9 +21,9 @@ public class ManagementUserServiceImpl implements ManagementUserService {
     @Override
     public List<User> getUserList() {
         //过滤管理员账号
-        return managementUserMapper.selectUserList().stream()
+        return managementUserMapper.selectUserList();/*.stream()
                 .filter(user -> !"admin".equals(user.getRole()))
-                .toList();
+                .toList();*/
     }
 
     @Override
@@ -35,6 +36,9 @@ public class ManagementUserServiceImpl implements ManagementUserService {
         if (status == null) {
             throw new RuntimeException("用户状态为空");
         }
+        if (Objects.equals(userInfo.getRole(), "admin")){
+            throw new RuntimeException("管理员账号不能修改状态");
+        }
         switch (status) {
             case 0 -> {
                 userMapper.updateUserStatus1(userId);
@@ -46,5 +50,10 @@ public class ManagementUserServiceImpl implements ManagementUserService {
             }
         }
         return false;
+    }
+
+    @Override
+    public void updateAdmin(Long userId) {
+        userMapper.updateAdmin(userId);
     }
 }

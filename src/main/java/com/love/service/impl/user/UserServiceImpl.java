@@ -195,7 +195,7 @@ public class UserServiceImpl implements UserService {
         String token = JwtUtil.genToken(claims);
         //把token存储到Redis中
         ValueOperations<String, String> operations = stringRedisTemplate.opsForValue();
-        operations.set(token, token, 3, TimeUnit.HOURS);//3小时
+        operations.set(username + "token", token, 3, TimeUnit.HOURS);//3小时
         return token;
     }
 
@@ -385,5 +385,10 @@ public class UserServiceImpl implements UserService {
             log.error("验证码发送失败，邮箱: {}, 错误信息: {}", email, e.getMessage(), e);
             return "验证码获取失败，请检查邮箱是否正确";
         }
+    }
+
+    @Override
+    public User findByUserId(Long userId) {
+        return userMapper.findById(userId);
     }
 }

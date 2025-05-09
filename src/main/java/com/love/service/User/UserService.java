@@ -52,4 +52,5 @@ public interface UserService {
     // 获取用户首页信息
     UserDto getUserHomeList(String username);
 
+    User findByUserId(Long userId);
 }
