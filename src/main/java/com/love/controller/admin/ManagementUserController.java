@@ -36,7 +36,7 @@ public class ManagementUserController {
      * 更新用户状态
      */
     @PutMapping("/{userId}")
-    public Result<String> updateUserStatus(@PathVariable Long userId, HttpServletRequest request) {
+    public Result<String> updateUserStatus(@PathVariable Long userId) {
         Boolean updateUserStatus = managementUserService.updateUserStatus(userId);
         if (updateUserStatus) {
             stringRedisTemplate.delete(userService.findByUserId(userId).getUsername()+"token");
