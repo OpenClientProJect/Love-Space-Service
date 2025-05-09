@@ -26,7 +26,7 @@ public class ManagementUserController {
     /**
      * 获取用户列表
      */
-    @GetMapping
+    @GetMapping("/userList")
     public Result<List<User>> getUserList() {
         List<User> userList = managementUserService.getUserList();
         return Result.success(userList);

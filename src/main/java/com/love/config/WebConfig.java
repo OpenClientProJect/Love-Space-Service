@@ -44,7 +44,8 @@ public class WebConfig implements WebMvcConfigurer {
                 "/api/user/barrage/get",
                 "/api/admin/homeImage/image",
                 "/api/admin/homeImage/background",
-                "/api/admin/activity"
+                "/api/admin/activity",
+                "/api/admin/managementUser/userList"
         );
     }
 
