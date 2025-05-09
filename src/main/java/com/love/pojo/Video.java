@@ -31,6 +31,7 @@ public class Video {
     private Integer mainCategoryId;//主分类
     private Integer subCategoryId;//副分类
     private String videoUrl;//视频地址
+    private Integer status;
     private Integer likesCount;//点赞数
     private Integer favoriteCount;//收藏数
     private LocalDateTime createTime;//发布时间

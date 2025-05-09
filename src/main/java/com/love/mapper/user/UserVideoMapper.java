@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface UserVideoMapper {
     // 添加用户和视频
-    @Insert("insert into video_draft(title,cover,user_id,content,video_url,mainCategory_id,subCategory_id, create_time,update_time)" +
+    @Insert("insert into video(title,cover,user_id,content,video_url,main_category_id,sub_category_id, create_time,update_time)" +
             "values(#{title},#{cover},#{userId},#{content},#{videoUrl},#{mainCategoryId},#{subCategoryId},NOW(),NOW())")
     void add(Video video);
 
