@@ -1,6 +1,7 @@
 package com.love.service.admin.impl;
 
 import com.love.mapper.admin.ManagementUserMapper;
+import com.love.mapper.user.UserFollowMapper;
 import com.love.mapper.user.UserMapper;
 import com.love.pojo.user.User;
 import com.love.service.admin.ManagementUserService;
@@ -17,13 +18,17 @@ public class ManagementUserServiceImpl implements ManagementUserService {
     private ManagementUserMapper managementUserMapper;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    UserFollowMapper userFollowMapper;
 
     @Override
     public List<User> getUserList() {
-        //过滤管理员账号
-        return managementUserMapper.selectUserList();/*.stream()
-                .filter(user -> !"admin".equals(user.getRole()))
-                .toList();*/
+        List<User> userList = managementUserMapper.selectUserList();
+        for (User user : userList) {
+            user.setFollowCount(userFollowMapper.followCount(user.getId()));
+            user.setFansCount(userFollowMapper.fansCount(user.getId()));
+        }
+        return userList;
     }
 
     @Override

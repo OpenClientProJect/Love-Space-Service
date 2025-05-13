@@ -50,4 +50,5 @@ public class ManagementUserController {
         managementUserService.updateAdmin(userId);
         return Result.success("更新成功");
     }
+
 }

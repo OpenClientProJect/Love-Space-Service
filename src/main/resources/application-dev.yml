@@ -36,7 +36,7 @@ spring:
       max-request-size: 1000MB
 server:
   port: 8080
-mybatis:
+mybatis-plus:
   configuration:
     ##开启驼峰命名
     map-underscore-to-camel-case: true

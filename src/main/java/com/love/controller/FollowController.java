@@ -25,7 +25,7 @@ public class FollowController {
         return Result.success(userFollows);
     }
 
-    //粉色列表
+    //粉丝列表
     @GetMapping("/fans")
     public Result<List<User>> fansList(Long userId){
 

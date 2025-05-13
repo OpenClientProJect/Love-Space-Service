@@ -9,8 +9,8 @@ import java.util.List;
 @Mapper
 public interface UserVideoMapper {
     // 添加用户和视频
-    @Insert("insert into video(title,cover,user_id,content,video_url,main_category_id,sub_category_id, create_time,update_time)" +
-            "values(#{title},#{cover},#{userId},#{content},#{videoUrl},#{mainCategoryId},#{subCategoryId},NOW(),NOW())")
+    @Insert("insert into video(title,cover,user_id,content,video_url,category_id,create_time,update_time)" +
+            "values(#{title},#{cover},#{userId},#{content},#{videoUrl},#{categoryId},NOW(),NOW())")
     void add(Video video);
 
     // 分页查询用户视频

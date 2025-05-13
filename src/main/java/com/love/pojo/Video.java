@@ -28,8 +28,7 @@ public class Video {
     private String introduction;//用户简介
     @NotEmpty
     private String content;//视频介绍
-    private Integer mainCategoryId;//主分类
-    private Integer subCategoryId;//副分类
+    private Integer categoryId;
     private String videoUrl;//视频地址
     private Integer status;
     private Integer likesCount;//点赞数
