@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class MainCategory {
-    @TableId(type = IdType.AUTO)
-    private Integer categoryId;
+    @TableId
+    private Long categoryId;
     private String categoryName;
 }

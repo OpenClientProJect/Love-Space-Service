@@ -19,8 +19,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @TableName("sub_category")
 public class SubCategory {
-    @TableId(value = "category_id", type = IdType.AUTO)
-    private Integer categoryId;
-    private Integer mainCategoryId;
+    @TableId
+    private Long categoryId;
+    private Long mainCategoryId;
     private String categoryName;
 }

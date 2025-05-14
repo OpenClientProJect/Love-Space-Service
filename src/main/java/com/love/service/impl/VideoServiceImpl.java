@@ -24,8 +24,8 @@ public class VideoServiceImpl implements VideoService {
 
     // 查询所有视频
     @Override
-    public List<Video> list(Integer categoryId) {
-        //stream流过滤掉status为不等于2的视频
+    public List<Video> list(Long categoryId) {
+        //stream流过滤掉status为等于2的视频
         return videoMapper.list(categoryId).stream()
                 .filter(video -> video.getStatus() == 2)
                 .toList();

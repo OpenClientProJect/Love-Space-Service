@@ -60,7 +60,7 @@ public class CategoryController {
      * 删除主分类
      */
     @DeleteMapping("/deleteMainCategory")
-    public Result<String> deleteMainCategory(Integer categoryId) {
+    public Result<String> deleteMainCategory(Long categoryId) {
         mainCategoryService.removeById(categoryId);
         return Result.success();
     }
@@ -69,7 +69,7 @@ public class CategoryController {
      * 删除子分类
      */
     @DeleteMapping("/deleteSubCategory")
-    public Result<String> deleteSubCategory(Integer categoryId) {
+    public Result<String> deleteSubCategory(Long categoryId) {
         subCategoryService.removeById(categoryId);
         return Result.success();
     }

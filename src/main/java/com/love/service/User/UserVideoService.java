@@ -8,7 +8,7 @@ public interface UserVideoService {
     // 添加
     void add(Video video);
     // 分页查询
-    PageBean<Video> list(Integer pageNum, Integer pageSize, Integer categoryId, String state );
+    PageBean<Video> list(Integer pageNum, Integer pageSize, Long categoryId, String state );
     // 修改
     void update(Video userVideo);
     // 删除

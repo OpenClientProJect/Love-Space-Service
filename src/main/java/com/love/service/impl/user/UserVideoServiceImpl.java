@@ -36,7 +36,7 @@ public class UserVideoServiceImpl implements UserVideoService {
 
     // 分页查询用户视频信息列表
     @Override
-    public PageBean<Video> list(Integer pageNum, Integer pageSize, Integer categoryId, String state) {
+    public PageBean<Video> list(Integer pageNum, Integer pageSize, Long categoryId, String state) {
         // 初始化分页对象
         PageBean<Video> pb = new PageBean<>();
         // 开始分页

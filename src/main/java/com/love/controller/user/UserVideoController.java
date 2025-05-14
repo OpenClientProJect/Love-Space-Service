@@ -26,7 +26,7 @@ public class UserVideoController {
     public Result<PageBean<Video>> list(
             Integer pageNum,//当前页
             Integer pageSize,//每页条数
-            @RequestParam(required = false) Integer categoryId,//分类id
+            @RequestParam(required = false) Long categoryId,//分类id
             @RequestParam(required = false) String state //发布状态
     ){
         PageBean<Video> pb = userVideoService.list(pageNum,pageSize,categoryId,state);
