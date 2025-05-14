@@ -11,7 +11,7 @@
  Target Server Version : 80040 (8.0.40)
  File Encoding         : 65001
 
- Date: 13/05/2025 15:03:33
+ Date: 14/05/2025 12:20:16
 */
 
 SET NAMES utf8mb4;
@@ -149,7 +149,7 @@ CREATE TABLE `home_image`  (
 -- ----------------------------
 DROP TABLE IF EXISTS `main_category`;
 CREATE TABLE `main_category`  (
-  `category_id` int NOT NULL AUTO_INCREMENT,
+  `category_id` bigint UNSIGNED NOT NULL,
   `category_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NULL DEFAULT NULL,
   PRIMARY KEY (`category_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_as_ci COMMENT = '分类表' ROW_FORMAT = Dynamic;
@@ -168,18 +168,18 @@ CREATE TABLE `operate_log`  (
   `cost_time` bigint NULL DEFAULT NULL COMMENT '操作耗时',
   `return_value` varchar(1000) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL COMMENT '方法返回值',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 338 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 340 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci COMMENT = '操作日志' ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for sub_category
 -- ----------------------------
 DROP TABLE IF EXISTS `sub_category`;
 CREATE TABLE `sub_category`  (
-  `category_id` int NOT NULL AUTO_INCREMENT,
+  `category_id` bigint UNSIGNED NOT NULL,
   `category_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_ci NULL DEFAULT NULL,
-  `main_category_id` int NOT NULL COMMENT '主分类id',
+  `main_category_id` bigint UNSIGNED NOT NULL COMMENT '主分类id',
   PRIMARY KEY (`category_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_as_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_as_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Table structure for user
@@ -229,11 +229,11 @@ CREATE TABLE `video`  (
   `update_time` datetime NULL DEFAULT NULL COMMENT '更新时间',
   `likes_count` int NULL DEFAULT 0 COMMENT '点赞数',
   `favorite_count` int NULL DEFAULT 0,
-  `category_id` int NOT NULL COMMENT '分类',
+  `category_id` bigint UNSIGNED NOT NULL COMMENT '分类',
   `status` int NOT NULL DEFAULT 1 COMMENT '视频状态 1=待审核 2=已审核 3=通过',
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_video_user_id_fk`(`user_id` ASC) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 112 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Table structure for video_draft
@@ -280,6 +280,6 @@ CREATE TABLE `video_likes`  (
   `favorite_at` timestamp NULL DEFAULT NULL COMMENT '收藏时间',
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `user_id`(`user_id` ASC, `video_id` ASC) USING BTREE COMMENT '确保同一用户对同一视频只能点赞一次'
-) ENGINE = InnoDB AUTO_INCREMENT = 128 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '视频点赞表' ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = '视频点赞表' ROW_FORMAT = DYNAMIC;
 
 SET FOREIGN_KEY_CHECKS = 1;
